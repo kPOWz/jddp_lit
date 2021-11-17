@@ -1,16 +1,21 @@
 package org.example;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class WordFrequencyStreamReader {
 
+    private static final String EXCLUDE_WORDS = "the,of,to,and,a,in,is,it,you,that,he,was,for,on,are,with,as,I,his,they,be,at,one,have,this,from,or,had,by,not,word,but,what,some,we,can,out,other,were,all,there,when,up,use,your,how,said,an,each,she";
+    private static final Map<String, Integer> excludeWordsMap = Stream.of(EXCLUDE_WORDS.split(","))
+            .map(s -> new AbstractMap.SimpleImmutableEntry<>(s, 0))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     private String words;
     private Map<String, Integer> map;
     private PriorityQueue<Map.Entry<String, Integer>> minHeap;
+
+
+    // ImmutableMap.of("key1", "value1", "key2", "value2");
 
     public WordFrequencyStreamReader(String words, int frequencyLimit) {
         this.words = words;
@@ -18,7 +23,9 @@ public class WordFrequencyStreamReader {
 
         String[] wordsArray = this.words.split(" ");
         Stream.of(wordsArray).forEach(word -> {
-            this.map.put(word, this.map.getOrDefault(word, 0) + 1);
+            if( isWordIncluded(word)) {
+                this.map.put(word, this.map.getOrDefault(word, 0) + 1);
+            }
         });
 
         // this essentially sorts the map, O(n log n)
@@ -47,4 +54,8 @@ public class WordFrequencyStreamReader {
      */
     public void add(String word) {}
     public void add(String[] word) {}
+
+    private boolean isWordIncluded(String word) {
+        return !excludeWordsMap.containsKey(word);
+    }
 }
