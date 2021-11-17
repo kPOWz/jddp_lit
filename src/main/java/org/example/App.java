@@ -21,6 +21,7 @@ package org.example;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 
 public class App 
 {
@@ -29,9 +30,12 @@ public class App
     public static void main( String[] args ) throws IOException {
         BufferedInputStream in = new BufferedInputStream(new URL(MOBY_DICK_URL).openStream());
         byte dataBuffer[] = new byte[1024];
-        int bytesRead;
+        String writtenWord = "";
+        int bytesRead = 0;
         while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
-            System.out.print(bytesRead);
+            writtenWord += new String(dataBuffer, 0, bytesRead);
         }
+        WordFrequencyStreamReader topFiftyMostFrequentWordsReader = new WordFrequencyStreamReader(writtenWord, 50);
+        System.out.print(Arrays.toString(topFiftyMostFrequentWordsReader.getTopKFrequentWordsUnordered()));
     }
 }
