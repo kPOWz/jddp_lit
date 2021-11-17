@@ -31,4 +31,16 @@ class WordFrequencyStreamReaderTest {
         assertTrue(Arrays.asList(expectedTop3).containsAll(Arrays.asList(observedMostFrequent3)));
     }
 
+    @Test
+    void shouldGetAsManyAsPossible() {
+        String words = "dog cat bird cat dog donkey horse dog";
+        var ssr = new WordFrequencyStreamReader(words, 12);
+
+        var observed = ssr.getTopKFrequentWordsUnordered();
+
+        String[] expectedTop2 = {"cat", "dog", "bird", "donkey", "horse"};
+        assertTrue(expectedTop2.length == observed.length);
+        assertTrue(Arrays.asList(expectedTop2).containsAll(Arrays.asList(observed)));
+    }
+
 }
