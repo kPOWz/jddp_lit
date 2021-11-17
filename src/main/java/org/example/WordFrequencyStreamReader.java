@@ -1,7 +1,5 @@
 package org.example;
 
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -54,8 +52,8 @@ public class WordFrequencyStreamReader {
     *  to be a "stream" reader would need to implement an add() or two
     *  would simply do a map.put & minheap.add (size 51) & minheap.remove() (size 50 again)
      */
-    public void add(String word) throws ExecutionControl.NotImplementedException { throw new ExecutionControl.NotImplementedException("pseudocode");}
-    public void add(String[] word) throws ExecutionControl.NotImplementedException { throw new ExecutionControl.NotImplementedException("pseudocode");}
+    public void add(String word) { throw new UnsupportedOperationException();}
+    public void add(String[] word) { throw new UnsupportedOperationException();}
 
     private boolean isWordIncluded(String word) {
         return !excludeWordsMap.containsKey(word);
