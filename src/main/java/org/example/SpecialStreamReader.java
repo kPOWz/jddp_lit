@@ -8,23 +8,17 @@ import java.util.stream.Stream;
 
 public class SpecialStreamReader {
 
-    private PriorityQueue<Map.Entry<String, Integer>> minHeap;
     private String words;
-    private Integer initialCapacity;
+    private Comparator<Map.Entry<String, Integer>> entryComparator;
 
-    public SpecialStreamReader(int initialCapacity, String words) {
-        minHeap = new PriorityQueue<>((e1, e2) -> e1.getValue() - e2.getValue());
+    public SpecialStreamReader(String words) {
         this.words = words;
-        this.initialCapacity = initialCapacity;
     }
-
 
     /*
     * Return k-th most common words from sentence
      */
-    public String[] getTop50() {
-
-        // use priority queue correctly!
+    public String[] getTopKFrequentWordsAscending(int k) {
         String[] wordsArray = this.words.split(" ");
         Map<String, Integer> map = new HashMap<>();
 
@@ -35,11 +29,15 @@ public class SpecialStreamReader {
                     map.put(word, map.get(word).intValue() + 1);
                 }
         });
-        // sort the map,
+
+        // this essentially sorts the map, O(n log n)
+        // the collection constructor PriorityQueue() -> initFromCollection is better (O(n)), but couldn't use due to needing Comparator
+        PriorityQueue<Map.Entry<String, Integer>> minHeap = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
         minHeap.addAll(map.entrySet());
 
-        // pop,  take top n
-        while(minHeap.size() > this.initialCapacity) {
+        // pop until top n & then heap siftDown
+        //  O((n-k) log n)
+        while(minHeap.size() > k) {
             minHeap.remove();
         }
 

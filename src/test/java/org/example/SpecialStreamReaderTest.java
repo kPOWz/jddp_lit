@@ -11,9 +11,9 @@ class SpecialStreamReaderTest {
     @Test
     void shouldTrackTop2() {
         String words = "dog cat bird cat dog donkey horse dog";
-        var ssr = new SpecialStreamReader(2, words);
+        var ssr = new SpecialStreamReader(words);
 
-        var observed = ssr.getTop50();
+        var observed = ssr.getTopKFrequentWordsAscending(2);
 
         String[] expectedTop2 = {"cat", "dog"};
         assertArrayEquals(expectedTop2, observed);
