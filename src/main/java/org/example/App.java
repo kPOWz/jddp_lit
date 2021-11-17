@@ -20,7 +20,6 @@ package org.example;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class App 
