@@ -40,4 +40,11 @@ public class WordFrequencyStreamReader {
         // convert heap to string array
         return this.minHeap.stream().map(entry -> entry.getKey()).toArray(size -> new String[size]);
     }
+
+    /* TODO:
+    *  to be a "stream" reader would need to implement an add() or two
+    *  would simply do a map.put & minheap.add (size 51) & minheap.remove() (size 50 again)
+     */
+    public void add(String word) {}
+    public void add(String[] word) {}
 }
