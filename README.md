@@ -15,7 +15,7 @@ Use Collections API in .NET or JAVA or any other language of your choice.
 5) Check the code into GitHub and Share the link
 
 ## Implementation Notes
-
+### 1-3
 This implementation satisfies the deliverables by reading the entire novel into memory. The WordFrequencyStreamReader constructor is the biggest expense.
 The `WordFrequencyStreamReader` getter (at its core a formatter)
 
@@ -23,6 +23,8 @@ One possible alternative data structure for the basic deliverables is a sorted H
 Following that a `Stream` operator or two would be needed to get "top 50" - perhaps `limit`
 
 Due to the nature of ISG data platform, this implementation also plays with the idea of having the need to limit memory consumption & maps out how these alternatives would be composed. Adding chunks of data (from any or multiple sources) becomes very sustainable after the constructor initialization.
+### 4
+I used a template project & just added my finished code here : https://github.com/kPOWz/jddp_lit_aws
 
 ### Results
 In my opinion the best top 50 word from Moby Dick has to be _"ye"_
