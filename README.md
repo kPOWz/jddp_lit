@@ -36,4 +36,4 @@ Full results (not sure what it does with ties & should add `str.isBlank` check..
 Prereq: Java 11
 1) open in IDE of choice
 2) run "main" method
-check out the tests as well!
+3) check out the tests as well!
