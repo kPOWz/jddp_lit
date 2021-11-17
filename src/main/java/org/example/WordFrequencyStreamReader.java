@@ -11,11 +11,9 @@ public class WordFrequencyStreamReader {
     private String words;
     private Map<String, Integer> map;
     private PriorityQueue<Map.Entry<String, Integer>> minHeap;
-    private int frequencyCutOff;
 
-    public WordFrequencyStreamReader(String words, int k) {
+    public WordFrequencyStreamReader(String words, int frequencyLimit) {
         this.words = words;
-        this.frequencyCutOff = k;
         this.map = new HashMap<>();
 
         String[] wordsArray = this.words.split(" ");
@@ -30,7 +28,7 @@ public class WordFrequencyStreamReader {
 
         // pop until top n & then heap data structure does siftDown
         //  O((n-k) log n)
-        while(minHeap.size() > k) {
+        while(minHeap.size() > frequencyLimit) {
             minHeap.remove();
         }
     }
