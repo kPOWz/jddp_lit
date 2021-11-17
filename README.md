@@ -23,3 +23,10 @@ One possible alternative data structure for the basic deliverables is a sorted H
 Following that a `Stream` operator or two would be needed to get "top 50" - perhaps `limit`
 
 Due to the nature of ISG data platform, this implementation also plays with the idea of having the need to limit memory consumption & maps out how these alternatives would be composed. Adding chunks of data (from any or multiple sources) becomes very sustainable after the constructor initialization.
+
+### Results
+In my opinion the best top 50 word from Moby Dick has to be _"ye"_
+
+Full results (i spy two :bug: words related to spaces):
+>"[long, man, him,, seemed, her, after, two, them, who, would, than, though, has, still, it,, ye, must, yet, very, old, no, these, been, about, now, its, then, over, most, will, do, upon, their, those, great, my, down, any, me, into, so, , whale, which, if, him, more, only, such, like]"
+
