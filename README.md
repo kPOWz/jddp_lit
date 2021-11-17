@@ -24,7 +24,7 @@ Following that a `Stream` operator or two would be needed to get "top 50" - perh
 
 Due to the nature of ISG data platform, this implementation also plays with the idea of having the need to limit memory consumption & maps out how these alternatives would be composed. Adding chunks of data (from any or multiple sources) becomes very sustainable after the constructor initialization.
 ### 4
-I used a template project & just added my finished code here : https://github.com/kPOWz/jddp_lit_aws
+I used a template project & just added my finished code to that repo : https://github.com/kPOWz/jddp_lit_aws#4---awsinfrastructure-notes
 
 ### Results
 In my opinion the best top 50 word from Moby Dick has to be _"ye"_
