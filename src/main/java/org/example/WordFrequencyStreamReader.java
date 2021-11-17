@@ -20,7 +20,8 @@ public class WordFrequencyStreamReader {
 
         String[] wordsArray = this.words.split(" ");
         Stream.of(wordsArray).forEach(word -> {
-            if( isWordIncluded(word.toLowerCase(Locale.ROOT))) {
+            String normalizedWord = word.toLowerCase(Locale.ROOT);
+            if( isWordIncluded(normalizedWord)) {
                 this.map.put(word, this.map.getOrDefault(word, 0) + 1);
             }
         });
