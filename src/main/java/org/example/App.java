@@ -27,16 +27,11 @@ public class App
     static final String MOBY_DICK_URL = "https://www.gutenberg.org/files/2701/2701-0.txt";
 
     public static void main( String[] args ) throws IOException {
-//        System.out.println( "Hello World!" );
-
-        // java.io & a url
         BufferedInputStream in = new BufferedInputStream(new URL(MOBY_DICK_URL).openStream());
         byte dataBuffer[] = new byte[1024];
         int bytesRead;
         while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
             System.out.print(bytesRead);
         }
-        // file reader class # 2
-
     }
 }
