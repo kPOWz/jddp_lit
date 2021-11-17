@@ -23,11 +23,7 @@ public class SpecialStreamReader {
         Map<String, Integer> map = new HashMap<>();
 
         Stream.of(wordsArray).forEach(word -> {
-                if (!map.containsKey(word)){
-                    map.put(word, 1);
-                } else {
-                    map.put(word, map.get(word).intValue() + 1);
-                }
+            map.put(word, map.getOrDefault(word, 0) + 1);
         });
 
         // this essentially sorts the map, O(n log n)
