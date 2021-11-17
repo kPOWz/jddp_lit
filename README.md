@@ -27,6 +27,11 @@ Due to the nature of ISG data platform, this implementation also plays with the 
 ### Results
 In my opinion the best top 50 word from Moby Dick has to be _"ye"_
 
-Full results (i spy two :bug: words related to spaces):
+Full results (not sure what it does with ties & should add `str.isBlank` check...):
 >"[long, man, him,, seemed, her, after, two, them, who, would, than, though, has, still, it,, ye, must, yet, very, old, no, these, been, about, now, its, then, over, most, will, do, upon, their, those, great, my, down, any, me, into, so, , whale, which, if, him, more, only, such, like]"
 
+## Running the Moby Dick Top 50 Words App
+Prereq: Java 11
+1) open in IDE of choice
+2) run "main" method
+check out the tests as well!
